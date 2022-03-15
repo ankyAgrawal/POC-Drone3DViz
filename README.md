@@ -1,15 +1,18 @@
-# Welcome to cesium-angular-example 👋
+👋
+
+# Forked from Cesium-angular - More details about Cesium below
+
 [![Twitter: plexearth](https://img.shields.io/twitter/follow/plexearth.svg?style=social)](https://twitter.com/plexearth)
 
 > A simple web application that demonstrates integration of [Cesium](https://cesiumjs.org/) with the **LATEST** version of [Angular](https://angular.io/).
 
-## Install
+### Install
 
 ```sh
 npm install
 ```
 
-## Usage
+### Usage
 
 ```sh
 ng serve
@@ -17,20 +20,20 @@ ng serve
 
 > If you are using **Cesium ion**, make sure that you add your personal access token in the environment files.
 
-## Run tests
+### Run tests
 
 ```sh
 ng test
 ```
 
-## Author
+### Author
 
 👤 **Plexscape**
 
 * Twitter: [@plexearth](https://twitter.com/plexearth)
 * Github: [@Developer-Plexscape](https://github.com/Developer-Plexscape)
 
-## 🤝 Contributing
+### 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
