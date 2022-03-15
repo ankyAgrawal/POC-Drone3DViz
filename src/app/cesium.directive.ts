@@ -14,34 +14,39 @@ export class CesiumDirective implements OnInit {
     this.viewer = new Viewer(this.el.nativeElement);
     this.viewer.scene.primitives.add(new Cesium3DTileset({ url: IonResource.fromAssetId(96188) }));
 
+  
+    let position2 = this.getPosition(-87.615972,41.907947,300)
+    let orientation2 = this.getOrientation(Math.toRadians(135),0,0,position2)
+    this.addmodel("green",position2,orientation2,true);
+    // let e2 = this.viewer.entities.getById("green")
+
     // put dummy model in the space
-    let position = this.getPosition(-87.6231,41.89910,800)
+    let position = this.getPosition(-87.6231,41.9000,450)
     let orientation = this.getOrientation(Math.toRadians(135),0,0,position)
-    this.addmodel("red",position,orientation);
+    this.addmodel("red",position,orientation,true);
     let e = this.viewer.entities.getById("red")
-    let x = 1
-    while(x!=2000){
-      e.position = this.getPosition(position.x+x,position.y,position.z)
-      x+=1;
-      setTimeout(function(){},1000)
-    }
+
+
+    
+    
 
     
   }
 
-  addmodel(id:string,position:Cartesian3,orientation:Quaternion):void{
-    this.viewer.entities.removeAll();
+  addmodel(id:string,position:Cartesian3,orientation:Quaternion,trackedEntity:boolean):void{
+    // this.viewer.entities.removeAll();
     const entity = this.viewer.entities.add({
       name: id,
       position: position,
       orientation: orientation,
       model: {
         uri: "../assets/3dModels/DJIModel.glb",
-        minimumPixelSize: 128,
-        maximumScale: 20000,
+        minimumPixelSize: 64,
+        maximumScale: 2000,
       },
     });
-    this.viewer.trackedEntity = entity;
+    if(trackedEntity)
+      this.viewer.trackedEntity = entity;
   }
 
   getPosition(lat:number,lon:number,alt:number):Cartesian3{
